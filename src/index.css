@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  /* Upload drop zone active state */
+  .drop-active {
+    @apply border-brand-500 bg-brand-50 scale-[1.01];
+  }
+
+  /* Image card hover */
+  .img-card {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .img-card:hover {
+    @apply -translate-y-1;
+  }
+
+  /* Custom scrollbar */
+  .custom-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-track {
+    @apply bg-slate-100 rounded-full;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Progress bar animation */
+  .progress-bar {
+    background: linear-gradient(90deg, #0ea5e9, #6366f1);
+    animation: progressPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes progressPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  /* FAQ accordion */
+  .faq-item {
+    @apply transition-all duration-300;
+  }
+
+  /* Smooth range input */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 9999px;
+    background: #e2e8f0;
+    outline: none;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    cursor: pointer;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+    transition: box-shadow 0.2s;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 5px rgba(14, 165, 233, 0.25);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+/* Loading spinner */
+@keyframes spin-ring {
+  0% { stroke-dashoffset: 220; }
+  50% { stroke-dashoffset: 60; }
+  100% { stroke-dashoffset: 220; transform: rotate(360deg); }
+}
+
+.spin-ring {
+  animation: spin-ring 1.4s ease-in-out infinite;
+  transform-origin: center;
+}
